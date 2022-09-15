@@ -1,0 +1,19 @@
+<p>home works!</p>
+
+
+
+<section class="genre">
+    <h2>Films</h2>
+    <div class="category"></div>
+    <div *ngIf="TareasList.length">
+      <ul>
+        <li *ngFor="let film of TareasList" class="filmCard">
+          <div>
+            <img src="{{ film.logo }}" />
+            <h4>{{ film.estado }}</h4>
+            <h5>{{ film.tipo }}</h5>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
