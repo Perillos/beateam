@@ -1,3 +1,4 @@
+import { getTestBed } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TareasInterface } from './../../models/api.interface';
@@ -15,9 +16,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
      this.apiService.getTareas().subscribe((data: any) =>{
-      this.TareasList = data;
+      this.TareasList = data.data;
     })
-    console.log(this.apiService.getTareas().subscribe());
   }
   
 
