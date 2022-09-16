@@ -2,18 +2,56 @@
 
 
 
-<section class="genre">
-    <h2>Films</h2>
-    <div class="category"></div>
-    <div *ngIf="TareasList.length">
-      <ul>
-        <li *ngFor="let film of TareasList" class="filmCard">
-          <div>
-            <img src="{{ film.logo }}" />
-            <h4>{{ film.estado }}</h4>
-            <h5>{{ film.tipo }}</h5>
-          </div>
-        </li>
-      </ul>
+<main class="genre">
+    <h2>Tareas</h2>
+    <div class="busqueda">
+      <div>
+        <form action="">
+          <label for="client">Cliente</label>
+          <input type="text" id="client">
+
+          <label for="reference">Referencia</label>
+          <input type="text" id="reference">
+
+          <label for="user">Usuario</label>
+          <input type="text" id="user">
+
+          <label for="day">Fecha</label>
+          <input type="date" id="day">
+
+          <label for="lang">Tipos</label>
+          <select name="lenguajes" id="lang">
+            <option >Todos</option>
+            <option *ngFor="let type of TypeList">{{ type }}</option>
+          </select>
+
+          <fieldset>
+            <legend>Estado</legend>
+              <div *ngFor="let state of StateList">
+                <input type="checkbox" name="pay" id="">{{ state }}
+              </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="table">
+        <table>
+          <tr>
+            <th>Producto</th>
+            <th>Q.</th>
+            <th>Estado</th>
+            <th>Tipo</th>
+            <th>Fecha</th>
+            <th>Cliente</th>
+          </tr>
+          <tr *ngFor="let tarea of TareasList">
+            <td><img src="{{ tarea.logo }}" /> {{ tarea.referencia }}</td>
+            <td>{{ tarea.observacion }}</td>
+            <td>{{ tarea.estado }}</td>
+            <td>{{ tarea.tipo }}</td>
+            <td>{{ tarea.fecha }}</td>
+            <td>{{ tarea.codigo_cliente }} {{ tarea.alias_cliente }}</td>
+          </tr>
+        </table>
+      </div>
     </div>
-  </section>
+  </main>
